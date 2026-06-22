@@ -1,1 +1,0 @@
-import{B as c,k as n}from"./index-BpkrKYIB.js";function l(s,a){const e=`devtoolbox:${s}`;let o=a;try{const t=localStorage.getItem(e);t!==null&&(o=JSON.parse(t))}catch{}const r=n(o);return c(r,t=>{try{localStorage.setItem(e,JSON.stringify(t))}catch{}},{deep:!0}),r}export{l as u};
