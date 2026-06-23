@@ -1,0 +1,1 @@
+import{D as c,y as n}from"./index-BnoWan4Y.js";function l(s,a){const e=`devtoolbox:${s}`;let o=a;try{const t=localStorage.getItem(e);t!==null&&(o=JSON.parse(t))}catch{}const r=n(o);return c(r,t=>{try{localStorage.setItem(e,JSON.stringify(t))}catch{}},{deep:!0}),r}export{l as u};
