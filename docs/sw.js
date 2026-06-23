@@ -33,9 +33,7 @@ self.addEventListener('fetch', (event) => {
   // Navigation (SPA) : réseau d'abord, repli sur l'index.html en cache.
   if (request.mode === 'navigate') {
     event.respondWith(
-      fetch(request).catch(() =>
-        caches.match('./index.html').then((r) => r || caches.match('./')),
-      ),
+      fetch(request).catch(() => caches.match('./index.html').then((r) => r || caches.match('./'))),
     )
     return
   }
