@@ -1,7 +1,7 @@
 // Service worker maison (sans dépendance) pour un usage hors-ligne complet.
 // Stratégie : pré-cache du shell, puis cache-first runtime pour les assets
 // (les noms de fichiers Vite étant hashés, le cache reste cohérent).
-const CACHE = 'devtoolbox-v1'
+const CACHE = 'devtoolbox-v2'
 const PRECACHE = ['./', './index.html', './manifest.webmanifest', './icon.svg']
 
 self.addEventListener('install', (event) => {
