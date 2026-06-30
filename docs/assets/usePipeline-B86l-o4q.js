@@ -1,0 +1,1 @@
+import{r as i}from"./index-Du61lVK2.js";const e=i(null);function f(){function l(u,n,t){e.value={from:u,content:n,type:t}}function r(u){const n=e.value;return!n||u&&!u.includes(n.type)?null:(e.value=null,n)}return{pending:e,send:l,consume:r}}export{f as u};

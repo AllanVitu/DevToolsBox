@@ -1,0 +1,1 @@
+import{R as c,r as n}from"./index-Du61lVK2.js";function l(s,a){const e=`devtoolbox:${s}`;let r=a;try{const t=localStorage.getItem(e);t!==null&&(r=JSON.parse(t))}catch{}const o=n(r);return c(o,t=>{try{localStorage.setItem(e,JSON.stringify(t))}catch{}},{deep:!0}),o}export{l as u};
