@@ -1,0 +1,1 @@
+import{lt as e}from"./index-e1P-DHg1.js";var t=e(null);function n(){function e(e,n,r){t.value={from:e,content:n,type:r}}function n(e){let n=t.value;return!n||e&&!e.includes(n.type)?null:(t.value=null,n)}return{pending:t,send:e,consume:n}}export{n as t};

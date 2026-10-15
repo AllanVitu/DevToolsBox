@@ -1,0 +1,39 @@
+id: flexbox
+title: CSS Flexbox
+icon: columns-3
+summary: Aligner et répartir sur un axe.
+category: web
+keywords:
+  - css
+  - flexbox
+  - flex
+  - align
+  - justify
+  - centrer
+groups:
+  - title: Conteneur
+    items:
+      - code: 'display: flex'
+        desc: Active Flexbox sur le conteneur.
+      - code: 'flex-direction: row | column'
+        desc: Axe principal horizontal / vertical.
+      - code: 'flex-wrap: wrap'
+        desc: Autorise le passage à la ligne.
+      - code: 'gap: 1rem'
+        desc: Espace entre les enfants.
+  - title: Alignement
+    items:
+      - code: 'justify-content: center'
+        desc: Aligne sur l’axe principal.
+      - code: 'align-items: center'
+        desc: Aligne sur l’axe secondaire.
+      - code: space-between
+        desc: Répartit l’espace entre les éléments.
+  - title: Enfants
+    items:
+      - code: 'flex: 1'
+        desc: Occupe l’espace disponible à parts égales.
+      - code: 'flex: none'
+        desc: Taille fixe, ne grandit ni ne rétrécit.
+      - code: 'align-self: flex-end'
+        desc: Alignement individuel d’un enfant.

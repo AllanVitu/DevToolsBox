@@ -1,0 +1,53 @@
+id: regex
+title: Expressions régulières
+icon: regex
+summary: Les jetons essentiels pour construire un motif.
+category: web
+keywords:
+  - regex
+  - regexp
+  - pattern
+  - motif
+  - match
+  - expression
+groups:
+  - title: Classes de caractères
+    items:
+      - code: .
+        desc: N’importe quel caractère (sauf saut de ligne).
+      - code: \d \w \s
+        desc: Chiffre, caractère de mot, espace.
+      - code: \D \W \S
+        desc: Négations des précédents.
+      - code: '[abc] [^abc]'
+        desc: Un de ces caractères / aucun de ceux-ci.
+      - code: '[a-z0-9]'
+        desc: Intervalle de caractères.
+  - title: Quantificateurs
+    items:
+      - code: '* + ?'
+        desc: 0+ , 1+ , 0 ou 1 occurrence.
+      - code: '{n} {n,} {n,m}'
+        desc: Exactement n / au moins n / entre n et m.
+      - code: +?  *?
+        desc: Version paresseuse (minimale).
+  - title: Ancres & groupes
+    items:
+      - code: ^ $
+        desc: Début / fin de ligne.
+      - code: \b
+        desc: Frontière de mot.
+      - code: (abc)
+        desc: Groupe capturant.
+      - code: (?:abc)
+        desc: Groupe non capturant.
+      - code: a|b
+        desc: 'Alternative : a ou b.'
+  - title: Drapeaux (flags)
+    items:
+      - code: g
+        desc: 'Global : toutes les occurrences.'
+      - code: i
+        desc: Insensible à la casse.
+      - code: m
+        desc: 'Multiligne : ^ et $ par ligne.'

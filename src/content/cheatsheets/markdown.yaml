@@ -1,0 +1,41 @@
+id: markdown
+title: Markdown
+icon: file-text
+summary: La syntaxe pour rédiger READMEs et docs.
+category: prod
+keywords:
+  - markdown
+  - md
+  - readme
+  - titre
+  - lien
+  - liste
+groups:
+  - title: Texte
+    items:
+      - code: '# H1  ## H2  ### H3'
+        desc: Titres par niveau.
+      - code: '**gras**  *italique*'
+        desc: Mise en forme du texte.
+      - code: '`code`  ~~barré~~'
+        desc: Code en ligne / texte barré.
+      - code: '> citation'
+        desc: Bloc de citation.
+  - title: Listes & liens
+    items:
+      - code: '- item   1. item'
+        desc: Liste à puces / numérotée.
+      - code: '- [ ] tâche  - [x] faite'
+        desc: Cases à cocher.
+      - code: '[texte](url)'
+        desc: Lien hypertexte.
+      - code: '![alt](image.png)'
+        desc: Image.
+  - title: Blocs
+    items:
+      - code: '```js … ```'
+        desc: Bloc de code avec coloration.
+      - code: '| a | b |\n|---|---|'
+        desc: Tableau (en-tête + séparateur).
+      - code: ---
+        desc: Ligne horizontale.

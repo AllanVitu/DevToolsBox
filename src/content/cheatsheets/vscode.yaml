@@ -1,0 +1,40 @@
+id: vscode
+title: Raccourcis VS Code
+icon: code-xml
+summary: Gagner du temps au clavier (Windows / Linux).
+category: prod
+keywords:
+  - vscode
+  - raccourci
+  - éditeur
+  - clavier
+  - shortcut
+groups:
+  - title: Navigation
+    items:
+      - code: Ctrl + P
+        desc: Aller à un fichier.
+      - code: Ctrl + Shift + P
+        desc: Palette de commandes.
+      - code: Ctrl + G
+        desc: Aller à une ligne.
+      - code: Ctrl + Clic
+        desc: Aller à la définition.
+  - title: Édition
+    items:
+      - code: Alt + ↑ / ↓
+        desc: Déplacer la ligne.
+      - code: Shift + Alt + ↓
+        desc: Dupliquer la ligne.
+      - code: Ctrl + D
+        desc: Sélectionner l’occurrence suivante.
+      - code: Ctrl + /
+        desc: Commenter / décommenter.
+  - title: Interface
+    items:
+      - code: Ctrl + B
+        desc: Afficher / masquer la barre latérale.
+      - code: Ctrl + `
+        desc: Ouvrir le terminal intégré.
+      - code: Ctrl + Shift + F
+        desc: Recherche dans tout le projet.

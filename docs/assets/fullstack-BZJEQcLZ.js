@@ -1,0 +1,49 @@
+var e={id:`fullstack`,title:`Vue + PHP : comment ils se parlent`,icon:`arrow-left-right`,summary:`Le front demande, le back répond — avec du JSON.`,track:`back`,order:2,keywords:[`fullstack`,`fetch`,`api`,`front`,`back`,`communication`,`json`],tools:[`json`],added:null,readingTime:2,quiz:[{q:`Quel format sert de langage commun entre Vue et PHP ?`,options:[`JSON`,`PDF`,`MP3`],answer:0,explain:`Le JSON est léger et lisible par les deux côtés.`},{q:`Quelle fonction JavaScript appelle le serveur ?`,options:[`fetch()`,`grab()`,`call()`],answer:0,explain:`fetch() envoie la requête et attend la réponse.`},{q:`Que fait res.json() ?`,options:[`Transforme la réponse JSON en objet JS`,`Crée un fichier`,`Ferme la page`],answer:0,explain:`On récupère un objet JavaScript exploitable dans le front.`}],toc:[{id:`deux-programmes-une-conversation`,html:`Deux programmes, une conversation`},{id:`le-schema`,html:`Le schéma`},{id:`cote-front-fetch`,html:`Côté front : fetch()`},{id:`cote-back-la-reponse`,html:`Côté back : la réponse`}],blocks:[{type:`heading`,id:`deux-programmes-une-conversation`,html:`Deux programmes, une conversation`},{type:`text`,html:`Vue (dans le navigateur) et PHP (sur le serveur) sont <strong>deux programmes séparés</strong>. Pour échanger, le front <strong>demande</strong> (une requête) et le back <strong>répond</strong> (une réponse). Le langage commun de cette conversation, c&#39;est le <strong>JSON</strong>.`},{type:`heading`,id:`le-schema`,html:`Le schéma`},{type:`code`,lang:`sch`,label:`éma`,code:`[ Navigateur ]                            [ Serveur ]
+   Vue 3                                     PHP
+     |  1. fetch('/api/bonjour.php')           |
+     | -------------------------------------> |
+     |                                        |  2. PHP travaille
+     |  3. réponse JSON { "message": "..." }  |
+     | <------------------------------------- |
+     |  4. Vue affiche le résultat            |`,html:`<span class="line">[ Navigateur ]                            [ Serveur ]</span>
+<span class="line">   Vue 3                                     PHP</span>
+<span class="line">     |  1. fetch(&#39;/api/bonjour.php&#39;)           |</span>
+<span class="line">     | -------------------------------------&gt; |</span>
+<span class="line">     |                                        |  2. PHP travaille</span>
+<span class="line">     |  3. réponse JSON { &quot;message&quot;: &quot;...&quot; }  |</span>
+<span class="line">     | &lt;------------------------------------- |</span>
+<span class="line">     |  4. Vue affiche le résultat            |</span>`},{type:`heading`,id:`cote-front-fetch`,html:`Côté front : fetch()`},{type:`code`,lang:`vue`,label:`vue`,code:`<script setup>
+import { ref } from 'vue'
+
+const prenom = ref('Allan')
+const reponse = ref(null)
+
+async function envoyer() {
+  // fetch() appelle le serveur et ATTEND sa réponse
+  const res = await fetch('/api/bonjour.php?prenom=' + prenom.value)
+  reponse.value = await res.json() // on transforme le JSON en objet JS
+}
+<\/script>
+
+<template>
+  <input v-model="prenom" />
+  <button @click="envoyer">Envoyer</button>
+  <p v-if="reponse">{{ reponse.message }} — {{ reponse.heure }}</p>
+</template>`,html:`<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">&#x3C;</span><span style="--shiki-light:#22863A;--shiki-dark:#85E89D">script</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0"> setup</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">></span></span>
+<span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">import</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> { ref } </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">from</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> 'vue'</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">const</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> prenom</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583"> =</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0"> ref</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">(</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">'Allan'</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">)</span></span>
+<span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">const</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> reponse</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583"> =</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0"> ref</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">(</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">null</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">)</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">async</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583"> function</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0"> envoyer</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">() {</span></span>
+<span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D">  // fetch() appelle le serveur et ATTEND sa réponse</span></span>
+<span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">  const</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> res</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583"> =</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583"> await</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0"> fetch</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">(</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">'/api/bonjour.php?prenom='</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583"> +</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> prenom.value)</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">  reponse.value </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">=</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583"> await</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> res.</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">json</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">() </span><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D">// on transforme le JSON en objet JS</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">}</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">&#x3C;/</span><span style="--shiki-light:#22863A;--shiki-dark:#85E89D">script</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">></span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">&#x3C;</span><span style="--shiki-light:#22863A;--shiki-dark:#85E89D">template</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">></span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">  &#x3C;</span><span style="--shiki-light:#22863A;--shiki-dark:#85E89D">input</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0"> v-model</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">=</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">"prenom"</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> /></span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">  &#x3C;</span><span style="--shiki-light:#22863A;--shiki-dark:#85E89D">button</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0"> @click</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">=</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">"envoyer"</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">>Envoyer&#x3C;/</span><span style="--shiki-light:#22863A;--shiki-dark:#85E89D">button</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">></span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">  &#x3C;</span><span style="--shiki-light:#22863A;--shiki-dark:#85E89D">p</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0"> v-if</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">=</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">"reponse"</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">>{{ reponse.message }} — {{ reponse.heure }}&#x3C;/</span><span style="--shiki-light:#22863A;--shiki-dark:#85E89D">p</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">></span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">&#x3C;/</span><span style="--shiki-light:#22863A;--shiki-dark:#85E89D">template</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">></span></span>`},{type:`list`,ordered:!1,items:[`<code>async</code> / <code>await</code> : on <strong>attend</strong> la réponse du serveur sans bloquer la page.`,`<code>res.json()</code> : on convertit le texte JSON reçu en <strong>objet JavaScript</strong> utilisable.`]},{type:`heading`,id:`cote-back-la-reponse`,html:`Côté back : la réponse`},{type:`text`,html:`On réutilise le <code>bonjour.php</code> de la leçon précédente : il reçoit le <code>prenom</code>, fabrique un tableau et le renvoie en JSON avec <code>json_encode</code>. La boucle est bouclée.`},{type:`callout`,variant:`warn`,html:`Pendant le développement, le front et le back tournent souvent sur des <strong>ports différents</strong>. Il faut alors autoriser les requêtes (<strong>CORS</strong>) côté PHP, ou passer par un proxy.`}]};export{e as default};

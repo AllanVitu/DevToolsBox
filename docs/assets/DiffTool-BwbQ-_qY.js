@@ -1,0 +1,1 @@
+import{H as e,Q as t,U as n,ot as r}from"./index-e1P-DHg1.js";import{t as i}from"./ToolShell-DbbiVulA.js";var a={__name:`DiffTool`,setup(a){return(a,o)=>(t(),n(i,null,{default:r(()=>[...o[0]||=[e(`p`,{class:`empty`},`STUB`,-1)]]),_:1}))}};export{a as default};

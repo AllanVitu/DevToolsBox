@@ -1,0 +1,109 @@
+/* ==========================================================================
+   TOKENS — repris du portfolio (allanvitu.github.io/DevOps) : un fond calme,
+   des tuiles blanches (ou anthracite), une encre presque noire et un accent.
+
+   L'accent se choisit avec data-accent (sur <html> pour toute l'app, ou sur une
+   tuile pour la colorer localement). Il résout trois variables que lisent tous
+   les composants : --accent (texte), --accent-fill (aplats, boutons) et
+   --on-accent (texte posé sur l'aplat). Contrastes vérifiés ≥ 4,5:1.
+   ========================================================================== */
+
+:root {
+  --font-sans: 'Inter Tight Variable', 'Inter Tight', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-mono: 'JetBrains Mono Variable', 'JetBrains Mono', ui-monospace, 'Cascadia Code', Menlo, Consolas, monospace;
+
+  --r-tile: 28px;
+  --r-lg: 20px;
+  --r-md: 14px;
+  --r-sm: 10px;
+  --r-full: 999px;
+  --gap: 14px;
+  --page-max: 1440px;
+  --header-h: 68px;
+  --ease: cubic-bezier(0.16, 1, 0.3, 1);
+
+  --bg: #eeeef1;
+  --tile: #ffffff;
+  --tile-2: #f6f6f8;
+  --ink: #111216;
+  --muted: #5a5f6e;
+  --subtle: #62677a;
+  --line: rgba(17, 18, 22, 0.08);
+  --line-strong: rgba(17, 18, 22, 0.16);
+  --soft: rgba(17, 18, 22, 0.05);
+  --soft-2: rgba(17, 18, 22, 0.09);
+  --field: #f4f4f6;
+  --shadow: 0 22px 50px rgba(17, 18, 40, 0.12);
+  --shadow-pop: 0 30px 80px rgba(17, 18, 40, 0.22);
+  --scrim: rgba(17, 18, 22, 0.42);
+
+  --ok: #047857;
+  --ok-fill: #10b981;
+  --warn: #a15c00;
+  --warn-fill: #f5a524;
+  --danger: #be123c;
+  --danger-fill: #e11d48;
+
+  --indigo-text: #4f46e5;  --indigo-fill: #5b5bf0;  --indigo-on: #ffffff;
+  --violet-text: #6d28d9;  --violet-fill: #7c3aed;  --violet-on: #ffffff;
+  --sky-text: #0369a1;     --sky-fill: #0ea5e9;     --sky-on: #03131d;
+  --teal-text: #0f766e;    --teal-fill: #14b8a6;    --teal-on: #03140f;
+  --emerald-text: #047857; --emerald-fill: #10b981; --emerald-on: #04130d;
+  --lime-text: #3f6212;    --lime-fill: #84cc16;    --lime-on: #10200a;
+  --amber-text: #a15c00;   --amber-fill: #f5a524;   --amber-on: #1a1206;
+  --orange-text: #c2410c;  --orange-fill: #f97316;  --orange-on: #1c0a02;
+  --rose-text: #be123c;    --rose-fill: #e11d48;    --rose-on: #ffffff;
+  --slate-text: #475569;   --slate-fill: #64748b;   --slate-on: #ffffff;
+
+  --accent: var(--indigo-text);
+  --accent-fill: var(--indigo-fill);
+  --on-accent: var(--indigo-on);
+  color-scheme: light;
+}
+
+html[data-theme='dark'] {
+  --bg: #0b0b0e;
+  --tile: #16171c;
+  --tile-2: #1c1d23;
+  --ink: #f1f2f5;
+  --muted: #a2a6b3;
+  --subtle: #8a8f9e;
+  --line: rgba(255, 255, 255, 0.08);
+  --line-strong: rgba(255, 255, 255, 0.16);
+  --soft: rgba(255, 255, 255, 0.06);
+  --soft-2: rgba(255, 255, 255, 0.1);
+  --field: #101115;
+  --shadow: 0 22px 50px rgba(0, 0, 0, 0.5);
+  --shadow-pop: 0 30px 80px rgba(0, 0, 0, 0.6);
+  --scrim: rgba(0, 0, 0, 0.6);
+
+  --ok: #34d399;
+  --ok-fill: #10b981;
+  --warn: #fbbf24;
+  --warn-fill: #fbbf24;
+  --danger: #fda4af;
+  --danger-fill: #fb7185;
+
+  --indigo-text: #a5a6ff;  --indigo-fill: #5b5bf0;  --indigo-on: #ffffff;
+  --violet-text: #c4b5fd;  --violet-fill: #a78bfa;  --violet-on: #150a2e;
+  --sky-text: #7dd3fc;     --sky-fill: #38bdf8;     --sky-on: #03131d;
+  --teal-text: #5eead4;    --teal-fill: #2dd4bf;    --teal-on: #03140f;
+  --emerald-text: #34d399; --emerald-fill: #10b981; --emerald-on: #04130d;
+  --lime-text: #bef264;    --lime-fill: #a3e635;    --lime-on: #10200a;
+  --amber-text: #fbbf24;   --amber-fill: #fbbf24;   --amber-on: #1a1206;
+  --orange-text: #fdba74;  --orange-fill: #fb923c;  --orange-on: #1c0a02;
+  --rose-text: #fda4af;    --rose-fill: #fb7185;    --rose-on: #1f0309;
+  --slate-text: #cbd5e1;   --slate-fill: #94a3b8;   --slate-on: #0b1220;
+  color-scheme: dark;
+}
+
+[data-accent='indigo']  { --accent: var(--indigo-text);  --accent-fill: var(--indigo-fill);  --on-accent: var(--indigo-on); }
+[data-accent='violet']  { --accent: var(--violet-text);  --accent-fill: var(--violet-fill);  --on-accent: var(--violet-on); }
+[data-accent='sky']     { --accent: var(--sky-text);     --accent-fill: var(--sky-fill);     --on-accent: var(--sky-on); }
+[data-accent='teal']    { --accent: var(--teal-text);    --accent-fill: var(--teal-fill);    --on-accent: var(--teal-on); }
+[data-accent='emerald'] { --accent: var(--emerald-text); --accent-fill: var(--emerald-fill); --on-accent: var(--emerald-on); }
+[data-accent='lime']    { --accent: var(--lime-text);    --accent-fill: var(--lime-fill);    --on-accent: var(--lime-on); }
+[data-accent='amber']   { --accent: var(--amber-text);   --accent-fill: var(--amber-fill);   --on-accent: var(--amber-on); }
+[data-accent='orange']  { --accent: var(--orange-text);  --accent-fill: var(--orange-fill);  --on-accent: var(--orange-on); }
+[data-accent='rose']    { --accent: var(--rose-text);    --accent-fill: var(--rose-fill);    --on-accent: var(--rose-on); }
+[data-accent='slate']   { --accent: var(--slate-text);   --accent-fill: var(--slate-fill);   --on-accent: var(--slate-on); }

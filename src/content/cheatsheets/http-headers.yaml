@@ -1,0 +1,50 @@
+id: http-headers
+title: En-têtes HTTP
+icon: globe
+summary: Les en-têtes de requête et de réponse les plus courants.
+category: web
+keywords:
+  - http
+  - headers
+  - en-têtes
+  - cache
+  - cors
+  - content-type
+  - auth
+groups:
+  - title: Contenu
+    items:
+      - code: 'Content-Type: application/json'
+        desc: Type de média du corps.
+      - code: 'Content-Length: 348'
+        desc: Taille du corps en octets.
+      - code: 'Content-Encoding: gzip'
+        desc: Compression appliquée au corps.
+      - code: 'Accept: application/json'
+        desc: Types attendus par le client.
+  - title: Authentification
+    items:
+      - code: 'Authorization: Bearer <token>'
+        desc: Jeton d’accès (JWT, OAuth).
+      - code: 'WWW-Authenticate: Basic'
+        desc: Schéma d’authentification exigé (401).
+      - code: 'Set-Cookie: session=…; HttpOnly'
+        desc: Définit un cookie côté serveur.
+  - title: Cache
+    items:
+      - code: 'Cache-Control: max-age=3600'
+        desc: Durée de mise en cache (s).
+      - code: 'Cache-Control: no-store'
+        desc: Ne jamais mettre en cache.
+      - code: 'ETag: "abc123"'
+        desc: Empreinte de version d’une ressource.
+      - code: 'If-None-Match: "abc123"'
+        desc: Requête conditionnelle (→ 304).
+  - title: CORS
+    items:
+      - code: 'Access-Control-Allow-Origin: *'
+        desc: Origines autorisées (cross-origin).
+      - code: Access-Control-Allow-Methods
+        desc: Méthodes autorisées (preflight).
+      - code: Access-Control-Allow-Headers
+        desc: En-têtes autorisés (preflight).

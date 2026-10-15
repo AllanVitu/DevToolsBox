@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <!--
+      CSP : seuls nos propres fichiers s'exécutent ; le seul appel externe autorisé est l'API
+      d'Anthropic (assistant IA). 'unsafe-inline' ne concerne que les styles : la coloration
+      du code des leçons utilise des attributs style.
+    -->
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https:; font-src 'self'; connect-src 'self' https://api.anthropic.com; worker-src 'self'; manifest-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'"
+    />
+    <meta name="referrer" content="strict-origin-when-cross-origin" />
+    <title>DevToolbox — boîte à outils développeur</title>
+    <meta
+      name="description"
+      content="DevToolbox : outils développeur (JSON, SQL, regex, JWT, Docker, Nginx…), leçons avec quiz et aide-mémoire, dans une application installable qui fonctionne hors-ligne."
+    />
+    <meta name="author" content="Allan Vitu" />
+    <meta name="color-scheme" content="light dark" />
+    <meta name="theme-color" content="#eeeef1" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#0b0b0e" media="(prefers-color-scheme: dark)" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="fr_FR" />
+    <meta property="og:title" content="DevToolbox — boîte à outils développeur" />
+    <meta
+      property="og:description"
+      content="Outils, leçons avec quiz et aide-mémoire pour développeurs, dans une PWA Vue 3 qui fonctionne hors-ligne."
+    />
+    <meta property="og:url" content="https://allanvitu.github.io/DevToolsBox/" />
+    <meta property="og:image" content="https://allanvitu.github.io/DevToolsBox/icons/icon-512.png" />
+    <link rel="icon" href="./icon.svg" type="image/svg+xml" />
+    <link rel="icon" href="./icons/icon-32.png" sizes="32x32" type="image/png" />
+    <link rel="apple-touch-icon" href="./icons/icon-180.png" />
+    <link rel="manifest" href="./manifest.webmanifest" />
+    <!-- Applique thème et accent avant le premier rendu : aucun flash au chargement. -->
+    <script src="./theme-init.js"></script>
+  </head>
+  <body>
+    <div id="app"></div>
+    <noscript>DevToolbox a besoin de JavaScript pour fonctionner.</noscript>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>

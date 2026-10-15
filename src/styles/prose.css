@@ -1,0 +1,255 @@
+/* ==========================================================================
+   PROSE — texte long : leçons (.prose) et Markdown rendu (.md-body).
+   Ces contenus arrivent par v-html, d'où des styles globaux et non « scoped ».
+   ========================================================================== */
+
+.prose {
+  font-size: 16.5px;
+  line-height: 1.75;
+  color: var(--ink);
+}
+
+.prose > * + * {
+  margin-top: 16px;
+}
+
+.prose h2 {
+  font-size: clamp(22px, 2.2vw, 28px);
+  letter-spacing: -0.035em;
+  margin-top: 40px;
+  scroll-margin-top: calc(var(--header-h) + 16px);
+}
+
+.prose h2:first-child {
+  margin-top: 0;
+}
+
+.prose h3 {
+  font-size: 19px;
+  letter-spacing: -0.02em;
+  margin-top: 28px;
+}
+
+.prose p,
+.prose li {
+  text-wrap: pretty;
+}
+
+.prose ul,
+.prose ol {
+  display: grid;
+  gap: 8px;
+  padding-left: 0;
+}
+
+.prose ul > li,
+.prose ol > li {
+  position: relative;
+  padding-left: 26px;
+}
+
+.prose ul > li::before {
+  content: '';
+  position: absolute;
+  left: 8px;
+  top: 0.72em;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--accent-fill);
+}
+
+.prose ol {
+  counter-reset: item;
+}
+
+.prose ol > li {
+  counter-increment: item;
+}
+
+.prose ol > li::before {
+  content: counter(item);
+  position: absolute;
+  left: 0;
+  top: 0.2em;
+  width: 19px;
+  height: 19px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font: 700 11px/1 var(--font-mono);
+  background: color-mix(in srgb, var(--accent-fill) 16%, transparent);
+  color: var(--accent);
+}
+
+.prose a,
+.md-body a {
+  color: var(--accent);
+  text-decoration: underline;
+  text-decoration-thickness: 1.5px;
+  text-underline-offset: 3px;
+  text-decoration-color: color-mix(in srgb, var(--accent-fill) 45%, transparent);
+}
+
+.prose a:hover,
+.md-body a:hover {
+  text-decoration-color: currentColor;
+}
+
+.prose :not(pre) > code,
+.md-body :not(pre) > code {
+  font-size: 0.86em;
+  padding: 2px 6px;
+  border-radius: 6px;
+  background: color-mix(in srgb, var(--accent-fill) 11%, transparent);
+  color: var(--accent);
+  word-break: break-word;
+}
+
+.prose strong {
+  font-weight: 750;
+}
+
+.callout {
+  display: flex;
+  gap: 12px;
+  padding: 14px 16px;
+  border-radius: var(--r-lg);
+  border: 1px solid color-mix(in srgb, var(--accent-fill) 28%, transparent);
+  background: color-mix(in srgb, var(--accent-fill) 8%, var(--tile));
+  font-size: 15.5px;
+  line-height: 1.65;
+}
+
+.callout > .icon {
+  width: 19px;
+  height: 19px;
+  margin-top: 3px;
+  color: var(--accent);
+}
+
+.callout--warn {
+  --accent: var(--warn);
+  --accent-fill: var(--warn-fill);
+}
+
+.callout--danger {
+  --accent: var(--danger);
+  --accent-fill: var(--danger-fill);
+}
+
+.callout--tip {
+  --accent: var(--ok);
+  --accent-fill: var(--ok-fill);
+}
+
+.prose-table,
+.md-table {
+  overflow-x: auto;
+  border: 1px solid var(--line);
+  border-radius: var(--r-lg);
+}
+
+.prose-table table,
+.md-table table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14.5px;
+  line-height: 1.5;
+}
+
+.prose-table th,
+.prose-table td,
+.md-table th,
+.md-table td {
+  padding: 10px 14px;
+  text-align: left;
+  vertical-align: top;
+  border-bottom: 1px solid var(--line);
+}
+
+.prose-table th,
+.md-table th {
+  font: 500 11.5px var(--font-mono);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--subtle);
+  background: var(--tile-2);
+}
+
+.prose-table tr:last-child td,
+.md-table tr:last-child td {
+  border-bottom: 0;
+}
+
+/* Markdown rendu à l'exécution (aperçu Markdown, réponses de l'IA). */
+.md-body {
+  font-size: 15.5px;
+  line-height: 1.7;
+  overflow-wrap: anywhere;
+}
+
+.md-body > * + * {
+  margin-top: 12px;
+}
+
+.md-body h1,
+.md-body h2,
+.md-body h3,
+.md-body h4 {
+  letter-spacing: -0.03em;
+  margin-top: 22px;
+}
+
+.md-body h1 {
+  font-size: 26px;
+}
+
+.md-body h2 {
+  font-size: 21px;
+}
+
+.md-body h3 {
+  font-size: 17.5px;
+}
+
+.md-body ul,
+.md-body ol {
+  padding-left: 22px;
+  list-style: revert;
+}
+
+.md-body li + li {
+  margin-top: 4px;
+}
+
+.md-body li.task {
+  list-style: none;
+  margin-left: -22px;
+}
+
+.md-body blockquote {
+  padding: 4px 0 4px 16px;
+  border-left: 3px solid var(--accent-fill);
+  color: var(--muted);
+}
+
+.md-body pre {
+  padding: 14px 16px;
+  border-radius: var(--r-md);
+  background: var(--tile-2);
+  border: 1px solid var(--line);
+  overflow-x: auto;
+  font-size: 13.5px;
+  line-height: 1.6;
+}
+
+.md-body hr {
+  border: 0;
+  border-top: 1px solid var(--line-strong);
+  margin: 20px 0;
+}
+
+.md-body img {
+  border-radius: var(--r-md);
+}

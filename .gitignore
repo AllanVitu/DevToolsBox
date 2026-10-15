@@ -1,0 +1,16 @@
+# Dépendances et caches
+node_modules/
+.vite/
+coverage/
+
+# Secrets et réglages locaux
+.env
+.env.*
+!.env.example
+
+# Éditeurs et systèmes
+.DS_Store
+Thumbs.db
+*.log
+
+# docs/ est le build publié par GitHub Pages : il reste versionné.

@@ -1,0 +1,43 @@
+id: sql
+title: SQL
+icon: database
+summary: Interroger et modifier une base relationnelle.
+category: data
+keywords:
+  - sql
+  - select
+  - where
+  - join
+  - group by
+  - requête
+groups:
+  - title: Lire
+    items:
+      - code: SELECT col FROM t
+        desc: Sélectionner des colonnes.
+      - code: WHERE x = 1 AND y > 2
+        desc: Filtrer les lignes.
+      - code: ORDER BY col DESC
+        desc: Trier le résultat.
+      - code: LIMIT 10 OFFSET 20
+        desc: Pagination.
+  - title: Agréger
+    items:
+      - code: COUNT(*) SUM(x) AVG(x)
+        desc: Fonctions d’agrégation.
+      - code: GROUP BY col
+        desc: Regrouper avant d’agréger.
+      - code: HAVING COUNT(*) > 1
+        desc: Filtrer sur un agrégat.
+  - title: Joindre & écrire
+    items:
+      - code: JOIN t2 ON t1.id = t2.t1_id
+        desc: Lier deux tables.
+      - code: LEFT JOIN
+        desc: Garder les lignes de gauche sans correspondance.
+      - code: INSERT INTO t (a) VALUES (1)
+        desc: Ajouter une ligne.
+      - code: UPDATE t SET a=1 WHERE id=2
+        desc: Modifier (⚠ toujours un WHERE).
+      - code: DELETE FROM t WHERE id=2
+        desc: Supprimer (⚠ toujours un WHERE).
